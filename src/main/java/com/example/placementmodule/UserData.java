@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import javax.annotation.processing.Generated;
-@Table(name ="User Details" )
+@Table(name ="UserDetails" )
 @Data
 @Entity
 public class UserData {

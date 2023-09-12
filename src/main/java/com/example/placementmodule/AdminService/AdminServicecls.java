@@ -25,14 +25,13 @@ public class AdminServicecls implements AdminServiceInter{
 
     @Override
     public List<AdminData> getAdminDataList() {
-
         return adminRepository.findAll();
     }
 
     @Override
     public AdminData updateAdminData(String name,AdminData adminData) {
-//        Optional<AdminData> ad = adminRepository.findBy();
-
+//        Optional<AdminData> ad = adminRepository.findByCompanyname(name,adminData);
+        //PENDING
         return null;
     }
 
