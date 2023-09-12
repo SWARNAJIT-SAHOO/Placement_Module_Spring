@@ -2,6 +2,7 @@ package com.example.placementmodule.AdminController;
 
 import com.example.placementmodule.AdminData;
 import com.example.placementmodule.AdminService.AdminServicecls;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@Transactional
 public class AdminControllercls {
     private AdminServicecls adminServicecls;
 
@@ -34,4 +36,10 @@ public class AdminControllercls {
     public ResponseEntity<AdminData> updatedata(@PathVariable("companyname")String companyname,@RequestBody AdminData adminData){
         return new ResponseEntity<AdminData>(adminServicecls.updateAdminData(companyname,adminData), HttpStatus.OK);
     }
+    @DeleteMapping("/admin/delete/{name}")
+    public ResponseEntity<String> deleteitem(@PathVariable("name")String name){
+        adminServicecls.deletecompany(name);
+        return new ResponseEntity<String>(name+" is deleted",HttpStatus.OK);
+    }
+
 }

@@ -8,4 +8,6 @@ public interface AdminServiceInter {
     AdminData saveAdminData(AdminData adminData);
     List<AdminData> getAdminDataList();
     AdminData updateAdminData(String name,AdminData adminData);
+
+    void deletecompany(String name);
 }
