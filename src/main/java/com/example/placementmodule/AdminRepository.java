@@ -10,4 +10,7 @@ public interface AdminRepository extends JpaRepository<AdminData,Long> {
     void deleteByCompanyname(String companyname);
 
     Optional<AdminData> findBycompanyname(String companyname);
+
+    List<AdminData> findByCompanyname(String companyname);
+
 }

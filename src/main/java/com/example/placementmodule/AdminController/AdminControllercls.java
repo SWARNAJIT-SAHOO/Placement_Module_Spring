@@ -41,5 +41,11 @@ public class AdminControllercls {
         adminServicecls.deletecompany(name);
         return new ResponseEntity<String>(name+" is deleted",HttpStatus.OK);
     }
+    @GetMapping("/admin/getdatacp/{companyname}")
+    public List<AdminData> getcp(@PathVariable("companyname")String companyname){
+return adminServicecls.getdatacp(companyname);
+    }
+
+
 
 }

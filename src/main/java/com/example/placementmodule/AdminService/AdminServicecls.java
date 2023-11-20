@@ -2,6 +2,7 @@ package com.example.placementmodule.AdminService;
 
 import com.example.placementmodule.AdminData;
 import com.example.placementmodule.AdminRepository;
+import com.example.placementmodule.Exception.DataNotFound;
 import com.example.placementmodule.ExceptionFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -44,6 +45,14 @@ public class AdminServicecls implements AdminServiceInter{
         else{
             throw new ExceptionFound("AdminData","companyname",name);
         }
+    }
+    public AdminData getdataid(Long id){
+        return adminRepository.findById(id) .orElseThrow(() -> new DataNotFound("Sorry, no student found with the Id :" +id));
+    }
+
+    @Override
+    public List<AdminData> getdatacp(String companyname) {
+        return adminRepository.findByCompanyname(companyname);
     }
 
 

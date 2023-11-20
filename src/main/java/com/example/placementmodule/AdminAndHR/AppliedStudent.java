@@ -1,13 +1,12 @@
-package com.example.placementmodule;
+package com.example.placementmodule.AdminAndHR;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.annotation.processing.Generated;
-@Table(name ="Userdetails" )
+@Table(name ="studentapplied" )
 @Data
 @Entity
-public class UserData {
+public class AppliedStudent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,11 +20,18 @@ public class UserData {
     @Column(name = "email",nullable = false)
     private String email;
 
-    @Column(name="password",nullable = false)
-    private String Password;
 
     @Column(name="phone number",nullable = false)
     private Long phonenumber;
+
+    @Column(name = "companyname",nullable = false)
+    private String companyname;
+
+    @Column(name = "skills",nullable = false)
+    private String skills;
+
+    @Column(name = "certification",nullable = false)
+    private String certification;
 
     public Long getId() {
         return id;
@@ -59,16 +65,6 @@ public class UserData {
         this.email = email;
     }
 
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-
-
     public Long getPhonenumber() {
         return phonenumber;
     }
@@ -77,15 +73,41 @@ public class UserData {
         this.phonenumber = phonenumber;
     }
 
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
+    }
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public String getCertification() {
+        return certification;
+    }
+
+    public void setCertification(String certification) {
+        this.certification = certification;
+    }
+
     @Override
     public String toString() {
-        return "UserData{" +
+        return "AppliedStudent{" +
                 "id=" + id +
                 ", firsname='" + firsname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", Password='" + Password + '\'' +
                 ", phonenumber=" + phonenumber +
+                ", companyname='" + companyname + '\'' +
+                ", skills='" + skills + '\'' +
+                ", certification='" + certification + '\'' +
                 '}';
     }
 }

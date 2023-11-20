@@ -10,4 +10,7 @@ public interface AdminServiceInter {
     AdminData updateAdminData(String name,AdminData adminData);
 
     void deletecompany(String name);
+    AdminData getdataid(Long id);
+
+   List<AdminData> getdatacp(String companyname);
 }
