@@ -3,11 +3,9 @@ package com.example.placementmodule.Hrclass;
 import com.example.placementmodule.AdminLogin.AdminDetails;
 import com.example.placementmodule.UserData;
 import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -31,5 +29,10 @@ public class HrloginController {
             return ResponseEntity.status(401).build();
         }
 
+    }
+
+    @GetMapping("/hr/detail/{email}")
+    public ResponseEntity<HrDetail> getcoma(@PathVariable("email")String email){
+        return new ResponseEntity<>(hrService.getcp(email),HttpStatus.OK);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -46,6 +47,12 @@ public class AdminControllercls {
 return adminServicecls.getdatacp(companyname);
     }
 
+
+    //make it response enttity
+    @GetMapping("/admin/toupdate/{companyname}")
+    public Optional<AdminData> toupdatedata(@PathVariable("companyname")String companyname){
+        return adminServicecls.toupdate(companyname);
+    }
 
 
 }

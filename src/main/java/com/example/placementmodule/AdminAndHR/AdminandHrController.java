@@ -32,4 +32,30 @@ public class AdminandHrController {
 
         return adminandHrServiceLayer.cpapplied();
     }
+    @GetMapping("/user/companyapplied/{email}")
+    public List<String> studentcansee(@PathVariable("email") String email){
+        return adminandHrServiceLayer.cansee(email);
+    }
+    @RequestMapping ("/admin/search")
+    @GetMapping
+    public List<AppliedStudent> search(@RequestParam(required = false) String name){
+        if(name==null){
+            return adminandHrServiceLayer.searchallnot();
+        }
+        else{
+            return adminandHrServiceLayer.searchall(name);
+        }
+    }
+    @RequestMapping ("/admin/searchbyname")
+    @GetMapping
+    public List<AppliedStudent> searchname(@RequestParam(required = false) String name){
+        if(name==null){
+            return adminandHrServiceLayer.searchallnot();
+        }
+        else{
+            return adminandHrServiceLayer.searchname(name);
+        }
+    }
+
+
 }

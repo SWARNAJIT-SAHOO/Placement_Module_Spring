@@ -54,6 +54,11 @@ public class AdminServicecls implements AdminServiceInter{
     public List<AdminData> getdatacp(String companyname) {
         return adminRepository.findByCompanyname(companyname);
     }
+    @Override
+    public Optional<AdminData> toupdate(String companyname){
+        Optional<AdminData> ad = adminRepository.findBycompanyname(companyname);
+        return ad;
+    }
 
 
 }

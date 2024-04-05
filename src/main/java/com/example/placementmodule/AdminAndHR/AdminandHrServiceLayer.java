@@ -26,7 +26,20 @@ public class AdminandHrServiceLayer implements AdminandHrInterface{
         return appliedStudentRepo.findDistinctByCompanyname();
     }
 
+    public List<String> cansee(String email){
+        return appliedStudentRepo.findDistinctCompanyNamesByEmail(email);
+    }
 
-
+    @Override
+    public List<AppliedStudent> searchall(String name) {
+        return appliedStudentRepo.findByCompanynameContaining(name);
+    }
+    public List<AppliedStudent> searchallnot() {
+        return appliedStudentRepo.findAll();
+    }
+    @Override
+    public List<AppliedStudent> searchname(String name) {
+        return appliedStudentRepo.findByFirsnameContaining(name);
+    }
 
 }

@@ -13,4 +13,5 @@ public interface AdminRepository extends JpaRepository<AdminData,Long> {
 
     List<AdminData> findByCompanyname(String companyname);
 
+//    AdminData findbycompanyname(String companyname);
 }

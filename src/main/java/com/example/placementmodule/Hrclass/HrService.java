@@ -13,4 +13,8 @@ public class HrService {
         return hrDataRepo.findByEmail(hrDetail.getEmail());
     }
 
+    public HrDetail getcp(String cp){
+        return hrDataRepo.findByEmail(cp);
+    }
+
 }

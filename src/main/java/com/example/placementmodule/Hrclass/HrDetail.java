@@ -17,6 +17,17 @@ public class HrDetail {
     @Column(name="password",nullable = false)
     private String Password;
 
+    @Column(name = "comapanyname",nullable = false)
+    private String companyname;
+
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
+    }
+
     public Long getId() {
         return id;
     }
@@ -47,6 +58,7 @@ public class HrDetail {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", Password='" + Password + '\'' +
+                ", companyname='" + companyname + '\'' +
                 '}';
     }
 }
