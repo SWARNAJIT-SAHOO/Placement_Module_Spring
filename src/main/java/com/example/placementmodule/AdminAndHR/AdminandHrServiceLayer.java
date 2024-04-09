@@ -32,7 +32,11 @@ public class AdminandHrServiceLayer implements AdminandHrInterface{
 
     @Override
     public List<AppliedStudent> searchall(String name) {
-        return appliedStudentRepo.findByCompanynameContaining(name);
+        List<AppliedStudent> ap= appliedStudentRepo.findByCompanynameContaining(name);
+        if(ap.isEmpty()){
+            ap = appliedStudentRepo.findByFirsnameContaining(name);
+        }
+        return ap;
     }
     public List<AppliedStudent> searchallnot() {
         return appliedStudentRepo.findAll();
