@@ -18,4 +18,6 @@ public interface AppliedStudentRepo extends JpaRepository<AppliedStudent,Long> {
 
 List<AppliedStudent> findByCompanynameContaining(String name);
 List<AppliedStudent> findByFirsnameContaining(String name);
+
+
 }

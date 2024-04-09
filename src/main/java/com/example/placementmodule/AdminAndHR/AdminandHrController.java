@@ -1,5 +1,6 @@
 package com.example.placementmodule.AdminAndHR;
 
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,15 @@ public class AdminandHrController {
         else{
             return adminandHrServiceLayer.searchname(name);
         }
+    }
+
+    @GetMapping(value = "/table/csv")
+    public void getadminTableAsCsv(HttpServletResponse response) {
+        adminandHrServiceLayer.getTable(response);
+    }
+    @GetMapping(value = "/hrgettable/csv/{companyname}")
+    public void getHrTableAs(@PathVariable("companyname") String companyname,HttpServletResponse response) {
+        adminandHrServiceLayer.gethrTable(companyname,response);
     }
 
 
