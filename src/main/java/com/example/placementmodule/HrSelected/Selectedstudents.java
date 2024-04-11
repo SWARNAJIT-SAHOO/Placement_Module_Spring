@@ -32,7 +32,7 @@ public class Selectedstudents {
 
     @Column(name = "certification",nullable = false)
     private String certification;
-    @Column(name = "status",nullable = false)
+    @Column(name = "status")
     private String status;
 
     @Column(name = "feedback",length = 10000)

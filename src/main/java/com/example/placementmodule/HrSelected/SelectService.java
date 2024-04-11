@@ -19,7 +19,23 @@ public class SelectService {
     }
 
 public void tosaveslected(List<Selectedstudents> selectedstudents){
-        selectedStudentRepository.saveAll(selectedstudents);
+
+        for(int i=0;i<selectedstudents.size();i++){
+            Selectedstudents ch = selectedstudents.get(i);
+            if(ch!=null){
+
+                Selectedstudents fin = selectedStudentRepository.findByEmailAndAndCompanyname(ch.getEmail(), ch.getCompanyname());
+
+                if(fin!=null){
+                    fin.setStatus(ch.getStatus());
+                    selectedStudentRepository.save(fin);
+                }
+                else{
+                    selectedStudentRepository.save(ch);
+                }
+            }
+
+        }
 }
 
 public List<Selectedstudents> getallselected(){
