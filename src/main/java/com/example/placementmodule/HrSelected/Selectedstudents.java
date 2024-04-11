@@ -35,6 +35,17 @@ public class Selectedstudents {
     @Column(name = "status",nullable = false)
     private String status;
 
+    @Column(name = "feedback",length = 10000)
+private String feedback;
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
     @Override
     public String toString() {
         return "Selectedstudents{" +
@@ -47,6 +58,7 @@ public class Selectedstudents {
                 ", skills='" + skills + '\'' +
                 ", certification='" + certification + '\'' +
                 ", status='" + status + '\'' +
+                ", feedback='" + feedback + '\'' +
                 '}';
     }
 
